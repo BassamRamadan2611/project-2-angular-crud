@@ -1,0 +1,49 @@
+<h1>Register New User</h1>
+
+<div  *ngIf ='alert'class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong> Success!</strong> Your has been registered successfully
+  <button  (click)='closeAlert()'type="button" class="close " data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<script>
+  $(".alert").alert();
+</script>
+
+<script>
+  $(".alert").alert();
+</script>
+
+<form [formGroup]='register' (ngSubmit)="collection()">
+ 
+
+    <div class="form-group m-3">
+      <label > Name</label>
+      <input type="text" class="form-control"  placeholder="Enter Name" formControlName ="name">
+      <small >User Name Must between 2 and 8</small>
+<div *ngIf ='register.controls.name.errors !=null && register.controls.name.touched'  class="border border-danger p-2 m-2">
+    <p class="text-info">Client Name Not Valid </p>
+</div>
+      
+     
+    </div>
+
+   
+      <div class="form-group m-3">
+        <label > Email</label>
+        <input type="email" class="form-control"  placeholder="Enter Email" formControlName ="email" required>
+        <small>User Mail Must be Valid</small>
+    <div *ngIf ='register.controls.email.errors !=null && register.controls.email.touched' class="border border-danger p-2 m-2" >
+        <p class="text-info">User Mail Not Valid </p>
+    </div>
+       
+      </div>
+      <div class="form-group m-3">
+        <label > Password</label>
+        <input type="text" class="form-control"  placeholder="Enter password" formControlName ="password">
+       
+      </div>
+    <button type="submit" class="btn btn-primary m-2">Submit</button>
+  </form>
